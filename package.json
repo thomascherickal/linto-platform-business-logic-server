@@ -1,0 +1,33 @@
+{
+  "name": "business-logic-server",
+  "version": "1.0.0",
+  "description": "Connector to server functionality for linto (LinStt, OpenPaas, ...)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "inspect": "node --inspect index.js",
+    "dev": "NODE_ENV=developpement DEBUG=linto-interface:* nodemon -e js, vue index.js",
+    "css-build": "node-sass --omit-source-map-url public/sass/styles.scss public/css/styles.css",
+    "css-watch": "npm run css-build -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@ci.linagora.com:7999/rlopez/linto-web-interface.git"
+  },
+  "keywords": [
+    "linto"
+  ],
+  "author": "rlopez@linagora.com",
+  "license": "AGPL-3.0-or-later",
+  "dependencies": {
+    "debug": "^4.1.0",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "fs": "0.0.1-security",
+    "html": "^1.0.0",
+    "node-red": "^0.19.5",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {}
+}
