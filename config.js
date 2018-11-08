@@ -17,7 +17,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-const debug = require('debug')('linto-interface:config')
+const debug = require('debug')('linto-red:config')
 const dotenv = require('dotenv')
 const path = require('path');
 const fs = require('fs')
@@ -33,15 +33,19 @@ function ifHas(element, defaultValue) {
 	return element
 }
 
-const APP_ROOT_DIR = path.resolve(__dirname)
-
 function configureDefaults() {
 	try {
 		dotenv.config()
 		const envdefault = dotenv.parse(fs.readFileSync('.envdefault'))
-		//Server properties
-		process.env.HTTP_PORT = ifHas(process.env.HTTP_PORT, envdefault.HTTP_PORT)
+
+		// Node environment
 		process.env.NODE_ENV = ifHas(process.env.NODE_ENV, envdefault.NODE_ENV)
+
+		//Server RED properties
+		process.env.HTTP_PORT_RED = ifHas(process.env.HTTP_PORT_RED, envdefault.HTTP_PORT_RED)
+		process.env.RED_UI_PATH = ifHas(process.env.RED_UI_PATH, envdefault.RED_UI_PATH)
+		process.env.NODES_RED_LINTO_SKILLS_PATH = ifHas(process.env.NODES_RED_LINTO_SKILLS_PATH, envdefault.NODES_RED_LINTO_SKILLS_PATH)
+
 		//Linto properties
 		process.env.LANGUE = ifHas(process.env.LANGUE, envdefault.LANGUE)
 		process.env.CITY = ifHas(process.env.DEFAULT_CITY, envdefault.DEFAULT_CITY)

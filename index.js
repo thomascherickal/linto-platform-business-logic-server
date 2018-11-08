@@ -27,9 +27,7 @@ class Ctl {
     async init() {
         try {
             this.webServer = await require('./lib/webserver')
-            //this.mqttMonitor = await require('./lib/mqtt-monitor')
-            // require('./controller/mqtt-http').call(this)
-            debug(`Application is started - Listening on ${process.env.HTTP_PORT}`)
+            debug(`Application is started - Listening on ${process.env.HTTP_PORT_RED}`)
         } catch (error) {
             console.error(error)
             process.exit(1)

@@ -34,6 +34,9 @@ module.exports = {
     // Retry time in milliseconds for Serial port connections
     serialReconnectTime: 15000,
 
+    // Disable node that will be remove
+    disableList: ['sentiment', 'link', 'exec', 'email', 'template', 'delay', 'trigger', 'rpi-gpio', 'tls', 'websocket', 'watch', 'tcpin', 'udp', 'switch', 'change', 'range', 'sort', 'batch', 'CSV', 'HTML', 'JSON', 'XML', 'YAML', 'tail', 'file', 'feedparse', 'rbe', 'twitter'],
+
     // Retry time in milliseconds for TCP socket connections
     //socketReconnectTime: 10000,
 
