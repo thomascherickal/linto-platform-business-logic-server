@@ -1,0 +1,19 @@
+{
+    "apps": [
+        {
+            "name": "linto_business_logic_server",
+            "cwd": "../",
+            "script": "node",
+            "args": "index.js",
+            "log_date_format": "YYYY-MM-DD HH:mm Z",
+            "env": {
+                "HTTP_PORT_RED": 10000,
+                "NODE_ENV": "production",
+		"RED_UI_PATH":"/redui",
+		"NODE_RED_LINTO_SKILLS_PATH":"../linto-skills",
+		"CITY":"Paris",
+		"LANGUE":"fr"
+            }
+        }
+    ]
+}
