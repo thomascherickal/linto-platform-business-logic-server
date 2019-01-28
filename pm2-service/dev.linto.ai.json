@@ -12,7 +12,7 @@
 		"RED_UI_PATH":"/redui",
 		"NODE_RED_LINTO_SKILLS_PATH":"../linto-skills",
 		"CITY":"Paris",
-		"LANGUE":"fr"
+		"DEFAULT_LANGUAGE":"fr-FR"
             }
         }
     ]

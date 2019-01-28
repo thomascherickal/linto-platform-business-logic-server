@@ -47,8 +47,7 @@ function configureDefaults() {
 		process.env.NODES_RED_LINTO_SKILLS_PATH = ifHas(process.env.NODES_RED_LINTO_SKILLS_PATH, envdefault.NODES_RED_LINTO_SKILLS_PATH)
 
 		//Linto properties
-		process.env.LANGUE = ifHas(process.env.LANGUE, envdefault.LANGUE)
-		process.env.CITY = ifHas(process.env.DEFAULT_CITY, envdefault.DEFAULT_CITY)
+		process.env.DEFAULT_LANGUAGE = ifHas(process.env.DEFAULT_LANGUAGE, envdefault.DEFAULT_LANGUAGE)
 	} catch (e) {
 		console.error(debug.namespace, e)
 		process.exit(1)

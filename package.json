@@ -28,6 +28,7 @@
     "fs": "0.0.1-security",
     "html": "^1.0.0",
     "node-red": "^0.19.5",
+    "node-red-contrib-config": "^1.1.2",
     "path": "^0.12.7"
   },
   "devDependencies": {}
