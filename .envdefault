@@ -4,7 +4,6 @@ NODE_ENV = dev
 #LINTO-RED Configuration
 HTTP_PORT_RED = 9000
 RED_UI_PATH = /redui
-#NODES_RED_LINTO_SKILLS_PATH = ../linto-skills
 
 #LINTO Configuration Require
 DEFAULT_LANGUAGE = en-US

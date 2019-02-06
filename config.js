@@ -44,7 +44,6 @@ function configureDefaults() {
 		//Server RED properties
 		process.env.HTTP_PORT_RED = ifHas(process.env.HTTP_PORT_RED, envdefault.HTTP_PORT_RED)
 		process.env.RED_UI_PATH = ifHas(process.env.RED_UI_PATH, envdefault.RED_UI_PATH)
-		process.env.NODES_RED_LINTO_SKILLS_PATH = ifHas(process.env.NODES_RED_LINTO_SKILLS_PATH, envdefault.NODES_RED_LINTO_SKILLS_PATH)
 
 		//Linto properties
 		process.env.DEFAULT_LANGUAGE = ifHas(process.env.DEFAULT_LANGUAGE, envdefault.DEFAULT_LANGUAGE)
