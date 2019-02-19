@@ -211,6 +211,7 @@ module.exports = {
     //    context.global.os
 
     functionGlobalContext: {
+        utility: require('linto-utility')
         // os:require('os'),
         // jfive:require("johnny-five"),
         // j5board:require("johnny-five").Board({repl:false})

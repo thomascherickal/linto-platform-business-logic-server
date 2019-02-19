@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  red:
+    build: .
+    container_name: linto-red
+    image: linto/red
+    ports:
+      - 9000:9000
+    env_file: .env

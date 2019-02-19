@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@ci.linagora.com:7999/rlopez/linto-web-interface.git"
+    "url": "ssh://git@ci.linagora.com:7999/linagora/lgs/labs/Linto-Device/Linto-Backend/linto-red.git"
   },
   "keywords": [
     "linto"
   ],
-  "author": "rlopez@linagora.com",
+  "author": "yhoupert@linagora.com",
   "license": "AGPL-3.0-or-later",
   "dependencies": {
     "debug": "^4.1.0",
