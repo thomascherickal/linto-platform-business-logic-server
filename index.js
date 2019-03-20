@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Linagora.
+ * Copyright (c) 2018 Linagora.
  *
  * This file is part of Business-Logic-Server
  *
@@ -16,7 +16,6 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-
 const debug = require('debug')('linto-red:ctl')
 require('./config')
 
