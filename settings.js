@@ -84,7 +84,7 @@ module.exports = {
 
     // By default, all user data is stored in the Node-RED install directory. To
     // use a different location, the following property can be used
-    userDir: 'node-user-dir/',
+    //userDir: './',
 
     // Node-RED scans the `nodes` directory in the install directory to find nodes.
     // The following property can be used to specify an additional directory to scan.
@@ -122,14 +122,14 @@ module.exports = {
     // -----------------
     // To password protect the Node-RED editor and admin API, the following
     // property can be used. See http://nodered.org/docs/security.html for details.
-    //adminAuth: {
-    //    type: "credentials",
-    //    users: [{
-    //        username: "admin",
-    //        password: "$2a$08$zZWtXTja0fB1pzD4sHCMyOCMYz2Z6dNbM6tl8sJogENOMcxWV9DN.",
-    //        permissions: "*"
-    //    }]
-    //},
+    adminAuth: {
+        type: "credentials",
+        users: [{
+            username: "admin",
+            password: "$2a$08$zZWtXTja0fB1pzD4sHCMyOCMYz2Z6dNbM6tl8sJogENOMcxWV9DN.",
+            permissions: "*"
+        }]
+    },
 
     // To password protect the node-defined HTTP endpoints (httpNodeRoot), or
     // the static content (httpStatic), the following properties can be used.
@@ -232,7 +232,7 @@ module.exports = {
     // palette. If a node's category is not in the list, the category will get
     // added to the end of the palette.
     // If not set, the following default order is used:
-    //paletteCategories: ['subflows', 'input', 'output', 'function', 'social', 'mobile', 'storage', 'analysis', 'advanced'],
+    paletteCategories: ['nlu', 'stt', 'setting', 'skills', 'subflows', 'input', 'output', 'function', 'social', 'mobile', 'storage', 'analysis', 'advanced'],
 
     // Configure the logging output
     logging: {
@@ -256,9 +256,17 @@ module.exports = {
 
     // Customising the editor
     editorTheme: {
+        header: {
+            title: "Linto",
+            image: process.cwd() + "/asset/linto_min.png", // or null to remove image
+            url: "http://linto.ai" // optional url to make the header text/image a link to this url
+        },
         projects: {
             // To enable the Projects feature, set this value to true
             enabled: false
+        },
+        menu: {
+            "menu-item-edit-palette": true
         }
     },
 }
