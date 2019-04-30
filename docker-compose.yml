@@ -6,5 +6,10 @@ services:
     container_name: linto-red
     image: linto/red
     ports:
-      - 9000:9000
+      - 127.0.0.1:9000:9000
     env_file: .env
+    networks:
+     - internal
+
+networks:
+  internal:

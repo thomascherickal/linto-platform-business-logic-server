@@ -1,16 +1,12 @@
-FROM node:10
+FROM node:latest
 
 WORKDIR /usr/src/app/linto-red
 
 COPY . /usr/src/app/linto-red
-RUN npm install
 
-RUN mv linto-utility/ node_modules/ && \
-    mv linto-skills-optional node_modules/  && \
-    mv linto-skills-core node_modules && \
-    cd node_modules/linto-skills-optional && \
-    npm install && \
-    cd ../linto-skills-core && \
-    npm install
-    
+RUN npm install && \
+  npm i linto-skills/linto-skills-optional && \
+  npm i linto-skills/linto-skills-core && \
+  npm i linto-skills/linto-utility
+
 CMD ["node", "index.js"]
