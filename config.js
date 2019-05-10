@@ -19,37 +19,43 @@
 
 const debug = require('debug')('linto-red:config')
 const dotenv = require('dotenv')
-const path = require('path');
+const path = require('path')
 const fs = require('fs')
 
 function noop() { }
 
 function ifHasNotThrow(element, error) {
-	if (!element) throw error
-	return element
+  if (!element) throw error
+  return element
 }
 function ifHas(element, defaultValue) {
-	if (!element) return defaultValue
-	return element
+  if (!element) return defaultValue
+  return element
 }
 
 function configureDefaults() {
-	try {
-		dotenv.config()
-		const envdefault = dotenv.parse(fs.readFileSync('.envdefault'))
+  try {
+    dotenv.config()
+    const envdefault = dotenv.parse(fs.readFileSync('.envdefault'))
 
-		// Node environment
-		process.env.NODE_ENV = ifHas(process.env.NODE_ENV, envdefault.NODE_ENV)
+    // Node environment
+    process.env.NODE_ENV = ifHas(process.env.NODE_ENV, envdefault.NODE_ENV)
 
-		//Server RED properties
-		process.env.HTTP_PORT_RED = ifHas(process.env.HTTP_PORT_RED, envdefault.HTTP_PORT_RED)
-		process.env.RED_UI_PATH = ifHas(process.env.RED_UI_PATH, envdefault.RED_UI_PATH)
+    // Server RED properties
+    process.env.HTTP_PORT_RED = ifHas(process.env.HTTP_PORT_RED, envdefault.HTTP_PORT_RED)
+    process.env.RED_UI_PATH = ifHas(process.env.RED_UI_PATH, envdefault.RED_UI_PATH)
 
-		//Linto properties
-		process.env.DEFAULT_LANGUAGE = ifHas(process.env.DEFAULT_LANGUAGE, envdefault.DEFAULT_LANGUAGE)
-	} catch (e) {
-		console.error(debug.namespace, e)
-		process.exit(1)
-	}
+    // Linto properties for populate skills
+    process.env.DEFAULT_LANGUAGE = ifHas(process.env.DEFAULT_LANGUAGE, envdefault.DEFAULT_LANGUAGE)
+    process.env.IS_POPULATE = ifHas(process.env.IS_POPULATE, envdefault.IS_POPULATE)
+    process.env.TOCK_API = ifHas(process.env.TOCK_API, envdefault.TOCK_API)
+    process.env.TOCK_USER = ifHas(process.env.TOCK_USER, envdefault.TOCK_USER)
+    process.env.TOCK_PASSWORD = ifHas(process.env.TOCK_PASSWORD, envdefault.TOCK_PASSWORD)
+    process.env.LM_API = ifHas(process.env.LM_API, envdefault.LM_API)
+
+  } catch (e) {
+    console.error(debug.namespace, e)
+    process.exit(1)
+  }
 }
 module.exports = configureDefaults()

@@ -7,3 +7,11 @@ RED_UI_PATH = /redui
 
 #LINTO Configuration Require
 DEFAULT_LANGUAGE = en-US
+
+#LINTO INJECT SKILL DATA
+IS_POPULATE = false
+
+TOCK_PASSWORD = ''
+TOCK_USER = ''
+TOCK_API = ''
+LM_API = ''
