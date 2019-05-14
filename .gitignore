@@ -1,3 +1,6 @@
 node_modules
 **/.env
-node-user-dir/
+node-user-dir
+package-lock.json
+.config.json.backup
+.config.json
