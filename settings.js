@@ -37,7 +37,7 @@ module.exports = {
   serialReconnectTime: 15000,
 
   // Disable node that will be remove
-  disableList: ['sentiment', 'link', 'exec', 'email', 'template', 'delay', 'trigger', 'rpi-gpio',
+  disableList: ['sentiment', 'link', 'exec', 'email', 'delay', 'trigger', 'rpi-gpio',
     'tls', 'websocket', 'watch', 'tcpin', 'udp', 'switch', 'change', 'range', 'sort', 'batch',
     'CSV', 'HTML', 'JSON', 'XML', 'YAML', 'tail', 'file', 'feedparse', 'rbe', 'twitter'],
 
