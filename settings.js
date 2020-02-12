@@ -37,7 +37,7 @@ module.exports = {
   serialReconnectTime: 15000,
 
   // Disable node that will be remove
-  disableList: ['sentiment', 'link', 'exec', 'email', 'delay', 'trigger', 'rpi-gpio',
+  disableList: ['sentiment', 'link', 'exec', 'email', 'template', 'delay', 'trigger', 'rpi-gpio',
     'tls', 'websocket', 'watch', 'tcpin', 'udp', 'switch', 'change', 'range', 'sort', 'batch',
     'CSV', 'HTML', 'JSON', 'XML', 'YAML', 'tail', 'file', 'feedparse', 'rbe', 'twitter'],
 
@@ -72,7 +72,7 @@ module.exports = {
   // debugUseColors: true,
 
   // The file containing the flows. If not set, it defaults to flows_<hostname>.json
-  // flowFile: 'flows.json',
+  flowFile: 'flowsStorage.json',
 
   // To enabled pretty-printing of the flow within the flow file, set the following
   //  property to true:
@@ -120,26 +120,26 @@ module.exports = {
 
   // If you installed the optional node-red-dashboard you can set it's path
   // relative to httpRoot
-  // ui: { path: "ui" },
+  ui: { path: "ui" },
 
   // Securing Node-RED
   // -----------------
   // To password protect the Node-RED editor and admin API, the following
   // property can be used. See http://nodered.org/docs/security.html for details.
-  //adminAuth: {
-  //  type: 'credentials',
-  //  users: [{
-  //    username: 'admin',
-  //    password: '$2a$08$zZWtXTja0fB1pzD4sHCMyOCMYz2Z6dNbM6tl8sJogENOMcxWV9DN.',
-  //    permissions: '*',
-  //  }],
-  //},
+  adminAuth: {
+    type: 'credentials',
+    users: [{
+      username: 'admin',
+      password: '$2a$08$zZWtXTja0fB1pzD4sHCMyOCMYz2Z6dNbM6tl8sJogENOMcxWV9DN.',
+      permissions: '*',
+    }],
+  },
 
   // To password protect the node-defined HTTP endpoints (httpNodeRoot), or
   // the static content (httpStatic), the following properties can be used.
   // The pass field is a bcrypt hash of the password.
   // See http://nodered.org/docs/security.html#generating-the-password-hash
-  // httpNodeAuth: {user:"user",pass:"$2a$08$zZWtXTja0fB1pzD4sHCMyOCMYz2Z6dNbM6tl8sJogENOMcxWV9DN."},
+  // httpNodeAuth: { user: "user", pass: "$2a$08$zZWtXTja0fB1pzD4sHCMyOCMYz2Z6dNbM6tl8sJogENOMcxWV9DN." },
   // httpStaticAuth: {user:"user",pass:"$2a$08$zZWtXTja0fB1pzD4sHCMyOCMYz2Z6dNbM6tl8sJogENOMcxWV9DN."},
 
   // The following property can be used to enable HTTPS
@@ -235,7 +235,7 @@ module.exports = {
   // palette. If a node's category is not in the list, the category will get
   // added to the end of the palette.
   // If not set, the following default order is used:
-  paletteCategories: ['nlu', 'stt', 'setting', 'skills', 'subflows',
+  paletteCategories: ['linto', 'settings', 'services', 'interface', 'skills', 'dictionary', 'subflows',
     'input', 'output', 'function', 'social', 'mobile', 'storage', 'analysis', 'advanced'],
 
   // Configure the logging output
@@ -264,6 +264,9 @@ module.exports = {
       title: 'Linto',
       image: process.cwd() + '/asset/linto_min.png', // or null to remove image
       url: 'http://linto.ai', // optional url to make the header text/image a link to this url
+    }, page: {
+      css: `${process.cwd()}/lib/node-red/css/nodered-custom.css`,
+      scripts: [`${process.cwd()}/lib/node-red/js/nodered-custom.js`]
     },
     projects: {
       // To enable the Projects feature, set this value to true
@@ -271,6 +274,12 @@ module.exports = {
     },
     menu: {
       'menu-item-edit-palette': true,
+    },
+    palette: {
+      editable: true, // Enable/disable the Palette Manager
+      catalogues: [   // Alternative palette manager catalogues
+        'https://catalogue.nodered.org/catalogue.json'
+      ]
     },
   },
 }

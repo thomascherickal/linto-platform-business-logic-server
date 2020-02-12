@@ -1,0 +1,123 @@
+// TODO: Uncomment require line when Jenkins has been setup
+// TODO: Setup environment config
+// TODO: Configure remoteSsh function for correct ssh script to call 
+
+pipeline {
+    agent any
+
+    tools {
+        nodejs "latest"
+    }
+
+    environment {
+        DOCKER_HUB_REPO = "lintoai/linto-platform-business-logic-server"
+        DOCKER_HUB_CRED = "docker-hub-credentials"
+
+        PROD_HOST_NAME = 'stage.linto.ai'
+        DEV_HOST_NAME = 'alpha.linto.ai'
+
+        RELEASE_VERSION = ''
+    }
+
+    stages{
+        stage('Build and publish on docker-hub'){
+            when{
+                branch 'master'
+            }
+            steps {
+                echo 'Prepare to deploy on npm'
+                script {
+                    // image = docker.build(env.DOCKER_HUB_REPO)
+                    // VERSION = sh(
+                        // returnStdout: true, 
+                        // script: "awk -v RS='' '/#/ {print; exit}' RELEASE.md | head -1 | sed 's/#//' | sed 's/ //'"
+                    // ).trim()
+                    // docker.withRegistry('https://registry.hub.docker.com', env.DOCKER_HUB_CRED) {
+                        // image.push("${VERSION}")
+                        // image.push('latest')
+                    // }
+                }
+                echo 'Deploy done'
+            }
+        } 
+
+        stage('Deploy with docker image'){
+            when{
+                branch 'master'
+            }
+            steps{
+                echo 'Prepare to deploy on ${PROD_HOST_NAME}'
+                script {
+                    //remoteSshDeploy(true)
+                }
+            }
+        }
+
+        stage('Build local on alpha'){
+            when{
+                branch 'next'
+            }
+            steps {
+                echo 'Prepare to deploy on alpha'
+                script {
+                  //remoteSshBuild(false)
+                }
+                echo 'Deploy done'
+            }
+        }
+
+        stage('Deploy local on alpha'){
+            when{
+                branch 'next'
+            }
+            steps{
+                echo 'Prepare to deploy on ${DEV_HOST_NAME}'
+                script {
+                    //remoteSshDeploy(false)
+                }
+            }
+        }
+    }// end stages
+}
+
+void remoteSshBuild(isBranchMaster = false){
+    def remote = [:]
+    def command = ""
+    remote.allowAnyHosts = true
+
+    if(isBranchMaster == true){ // Deploy production docker
+        remote.name = "linto-staging"
+        remote.host = PROD_HOST_NAME
+    }else{ // Deploy dev docker
+        remote.name = "linto-dev-staging"
+        remote.host = DEV_HOST_NAME
+        command = "./linto-platform-dev-stack/script/testBuild.sh"
+    }
+
+    withCredentials([sshUserPrivateKey(credentialsId: 'ssh_stage', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'userName')]) {
+        remote.identityFile = identity
+        remote.user = userName
+        sshCommand remote: remote, command: command
+    }
+}
+
+void remoteSshDeploy(isBranchMaster = false){
+    def remote = [:]
+    def command = ""
+    remote.allowAnyHosts = true
+
+    if(isBranchMaster == true){ // Deploy production docker
+        remote.name = "linto-staging"
+        remote.host = PROD_HOST_NAME
+    }else{ // Deploy dev docker
+        remote.name = "linto-dev-staging"
+        remote.host = DEV_HOST_NAME
+        command = "./linto-platform-dev-stack/script/test.sh"
+    }
+
+    withCredentials([sshUserPrivateKey(credentialsId: 'ssh_stage', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'userName')]) {
+        remote.identityFile = identity
+        remote.user = userName
+        sshCommand remote: remote, command: command
+    }
+}
