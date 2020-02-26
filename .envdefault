@@ -1,18 +1,11 @@
+# TimeZone
+TZ=Europe/Paris
+
 #LINTO-RED Environement running
-NODE_ENV = dev
+LINTO_STACK_NODE_ENV=dev
 
 #LINTO-RED Configuration
-HTTP_PORT_RED = 9000
-RED_UI_PATH = /redui
+LINTO_BLS_RED_HTTP_PORT=10000
+LINTO_BLS_RED_UI_PATH=/redui
 
-#LINTO Configuration Require
-DEFAULT_LANGUAGE = en-US
-
-#LINTO INJECT SKILL DATA
-IS_POPULATE = false
-
-#NLU AND LM INFORMATION FOR POPULATE
-TOCK_PASSWORD = ''
-TOCK_USER = ''
-TOCK_API = ''
-LM_API = ''
+LINTO_STACK_ADMIN_URI=http://localhost:9000/api

@@ -25,9 +25,9 @@ npm install
 First copy the default environment file `cp .envdefault .env`, then update the `.env` file to manage your personal configuration
 
 Here is the require environment setting for BLS
-* `NODE_ENV` : Environment of the process (`production`, `debug` or `dev`)
-* `HTTP_PORT_RED` : Port where will be deployed the Business-Logic-Server
-* `RED_UI_PATH` : Path of the interface API `http://<host>:<port>/RED_UI_PATH`
+* `LINTO_STACK_NODE_ENV` : Environment of the process (`production`, `debug` or `dev`)
+* `LINTO_BLS_RED_HTTP_PORT` : Port where will be deployed the Business-Logic-Server
+* `LINTO_BLS_RED_UI_PATH` : Path of the interface API `http://<host>:<port>/RED_UI_PATH`
 * `DEFAULT_LANGUAGE` : Default LinTO language that will be speak. (Supported value :`en-US`, `fr-FR` based on [LinSTT](https://github.com/linto-ai/linto-platform-stt-server-worker-client))
 
 ### Run project

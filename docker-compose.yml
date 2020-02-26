@@ -1,15 +1,10 @@
-version: '3'
+version: '3.7'
 
 services:
   red:
     build: .
     container_name: linto-red
     image: linto/red
-    ports:
-      - 127.0.0.1:${HTTP_PORT_RED}:${HTTP_PORT_RED}
     env_file: .env
-    networks:
-     - internal
-
-networks:
-  internal:
+    ports:
+      - 127.0.0.1:${LINTO_BLS_RED_HTTP_PORT}:${LINTO_BLS_RED_HTTP_PORT}

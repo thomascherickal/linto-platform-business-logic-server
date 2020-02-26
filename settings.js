@@ -120,7 +120,7 @@ module.exports = {
 
   // If you installed the optional node-red-dashboard you can set it's path
   // relative to httpRoot
-  ui: { path: "ui" },
+  ui: { path: 'ui' },
 
   // Securing Node-RED
   // -----------------
@@ -235,8 +235,9 @@ module.exports = {
   // palette. If a node's category is not in the list, the category will get
   // added to the end of the palette.
   // If not set, the following default order is used:
-  paletteCategories: ['linto', 'settings', 'services', 'interface', 'skills', 'dictionary', 'subflows',
-    'input', 'output', 'function', 'social', 'mobile', 'storage', 'analysis', 'advanced'],
+  paletteCategories: ['linto', 'settings', 'services', 'interface', 'skills',
+    'dictionary', 'subflows', 'input', 'output', 'function', 'social', 'mobile',
+    'storage', 'analysis', 'advanced'],
 
   // Configure the logging output
   logging: {
@@ -266,7 +267,7 @@ module.exports = {
       url: 'http://linto.ai', // optional url to make the header text/image a link to this url
     }, page: {
       css: `${process.cwd()}/lib/node-red/css/nodered-custom.css`,
-      scripts: [`${process.cwd()}/lib/node-red/js/nodered-custom.js`]
+      scripts: [`${process.cwd()}/lib/node-red/js/nodered-custom.js`],
     },
     projects: {
       // To enable the Projects feature, set this value to true
@@ -277,9 +278,9 @@ module.exports = {
     },
     palette: {
       editable: true, // Enable/disable the Palette Manager
-      catalogues: [   // Alternative palette manager catalogues
-        'https://catalogue.nodered.org/catalogue.json'
-      ]
+      catalogues: [ // Alternative palette manager catalogues
+        'https://catalogue.nodered.org/catalogue.json',
+      ],
     },
   },
 }
