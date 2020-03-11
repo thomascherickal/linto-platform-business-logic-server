@@ -6,3 +6,5 @@ Dockerfile
 .gitlab-ci.yml
 docker-compose.yml
 node_modules/
+flow-storage/
+local-settings/
