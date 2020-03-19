@@ -11,6 +11,20 @@ install_by_node_registry(){
   install_linto_node_module
 }
 
+[ -z "$LINTO_STACK_DOMAIN" ] && {
+    echo "Missing LINTO_STACK_DOMAIN"
+    exit 1
+}
+[ -z "$LINTO_STACK_BLS_SERVICE_UI_PATH" ] && {
+    echo "Missing LINTO_STACK_BLS_SERVICE_UI_PATH"
+    exit 1
+}
+[ -z "$LINTO_STACK_BLS_SERVICE_API_PATH" ] && {
+    echo "Missing LINTO_STACK_BLS_SERVICE_API_PATH"
+    exit 1
+}
+
+
 while [ "$1" != "" ]; do
     case $1 in
     --default-registry-npmrc)
@@ -31,7 +45,7 @@ while [ "$1" != "" ]; do
             script=$2
             shift
         else
-            die 'ERROR: "--run-npm-script" requires a non-empty option argument.'
+            die 'ERROR: "--run-cmd" requires a non-empty option argument.'
         fi
         ;;
     --run-cmd?*)
