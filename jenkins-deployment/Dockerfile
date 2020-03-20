@@ -20,4 +20,10 @@ RUN npm config set registry http://${VERDACCIO_USR}:${VERDACCIO_PSW}@${VERDACCIO
  npm install @linto-ai/node-red-linto-weather && \
  npm install @linto-ai/node-red-linto-welcome
 
-CMD ["node", "index.js"]
+HEALTHCHECK CMD node docker-healthcheck.js || exit 1
+EXPOSE 80
+
+COPY ./docker-entrypoint.sh /
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
+# CMD ["node", "index.js"]
