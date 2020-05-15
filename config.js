@@ -14,8 +14,10 @@ function configureDefaults() {
 
     // Node environment
     process.env.LINTO_STACK_NODE_ENV = ifHas(process.env.NODE_ENV, envdefault.NODE_ENV)
+    
+    process.env.LINTO_STACK_USE_SSL = ifHas(process.env.LINTO_STACK_USE_SSL, envdefault.LINTO_STACK_USE_SSL)
+    
     // Server RED properties
-
     process.env.LINTO_STACK_BLS_HTTP_PORT = ifHas(process.env.LINTO_STACK_BLS_HTTP_PORT, 80)
     process.env.LINTO_STACK_BLS_SERVICE_UI_PATH = ifHas(process.env.LINTO_STACK_BLS_SERVICE_UI_PATH, envdefault.LINTO_STACK_BLS_SERVICE_UI_PATH)
     process.env.LINTO_STACK_BLS_SERVICE_API_PATH = ifHas(process.env.LINTO_STACK_BLS_SERVICE_API_PATH, envdefault.LINTO_STACK_BLS_SERVICE_API_PATH)

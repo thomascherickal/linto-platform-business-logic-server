@@ -1,3 +1,6 @@
+#LINTO_STACK Configuration
+LINTO_STACK_USE_SSL=false
+
 #LINTO-RED Configuration
 LINTO_STACK_BLS_HTTP_PORT=
 
