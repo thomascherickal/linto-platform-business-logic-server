@@ -39,7 +39,7 @@ pipeline {
             steps {
                 echo 'Publishing unstable'
                 script {
-                    image = docker.build(env.DOCKER_HUB_REPO, "--network host --build-arg VERDACCIO_USR=${REALM_AUTH_USR} --build-arg VERDACCIO_PSW=${REALM_AUTH_PSW} --build-arg VERDACCIO_REGISTRY_HOST=${VERDACCIO_REGISTRY_HOST} -f ./jenkins-deployment/Dockerfile .")
+                    image = docker.build(env.DOCKER_HUB_REPO, "--no-cache --network host --build-arg VERDACCIO_USR=${REALM_AUTH_USR} --build-arg VERDACCIO_PSW=${REALM_AUTH_PSW} --build-arg VERDACCIO_REGISTRY_HOST=${VERDACCIO_REGISTRY_HOST} -f ./jenkins-deployment/Dockerfile .")
 
                     VERSION = sh(
                         returnStdout: true, 
