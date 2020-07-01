@@ -1,67 +1,60 @@
-# Business-Logic-Server
 
-Business Logic Server (BLS) is a workflow runner for a fleet of LinTO that will perform multiple task. It's based on [Node-Red](https://nodered.org/) framework allowing us to create any workflow/tasks for any need. A workflow (or process) is a sets of a numbers of tasks defined to be executed in a specific order. 
+# Linto-Platform-Business-Logic-S erver
+This services is mandatory in a complete LinTO platform stack as the main process that actualy executes a workflow defined as a collection of LinTO skills. This service itself mainly consists of a wrapper for a node-red runtime. Any user defined context on linto-admin (a given set of configured skills) is therefore backed by a node-red flow.
 
-A workflow will manage a voice (input), to text to speech (output) and all task between them called **skill** that will determine the suitable answer for LinTO. For all other workflow actions we use [LinTO-Platform-Admin](https://github.com/linto-ai/linto-platform-admin) (edit, setup, delete or create).
+## Define LinTO contexts as node-red flows
+This service provides for a node-red web interface wich is meant to get embedded in the main [LinTO platform admin web interface](https://github.com/linto-ai/linto-platform-admin/). LinTO skills are node-red _nodes_
 
-Node-Red can create any need (node/task) for LinTO, by default we include a default set of skills which allow to make some basic command ([LinTO-Skill-Core](https://github.com/linto-ai/linto-skills-core)). This set give access to these skills :
- * Speech To Text ([LinSTT - STT Skill](https://github.com/linto-ai/linto-platform-stt-server-worker-client)), transcribe voice to text
- * Natural Language Understanding ([TOCK - NLU Skill](https://voyages-sncf-technologies.github.io/tock/en/)), detect command intent
- * And a lot more
+## Usage
 
-## Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development. 
+See documentation : [doc.linto.ai](https://doc.linto.ai)
 
-Nodejs and npm are require  `sudo apt-get install nodejs npm`
+# Deploy
 
-### Installing
-A step by step series of command that will give you a development environment running
+With our proposed stack [linto-platform-stack](https://github.com/linto-ai/linto-platform-stack)
+
+# Develop
+
+## Install project
 ```
 git clone https://github.com/linto-ai/Business-Logic-Server.git
 cd Business-Logic-Server
 npm install
 ```
 
-### Configuration environment
-First copy the default environment file `cp .envdefault .env`, then update the `.env` file to manage your personal configuration
+### Configuration environement
+`cp .envdefault .env`
+Then update the `.env` to manage your personal configuration
 
-Here the different settings for BLS
-```
-LINTO_STACK_BLS_HTTP_PORT : BLS deployed port
+### Red Settings
+Node-Red provide a configuration file `lib/node-red/settings/settings.js`.
+More information can be found on node-red website : [Settings.js](https://nodered.org/docs/user-guide/runtime/settings-file)
 
-LINTO_STACK_BLS_SERVICE_UI_PATH : Interface location
-LINTO_STACK_BLS_SERVICE_API_PATH : REST api base location
-
-LINTO_STACK_BLS_USE_LOGIN : Add an user to acces bls
-LINTO_STACK_BLS_USER : User used for connection
-LINTO_STACK_BLS_PASSWORD : Password used for the connection
+Custom catalogue can be setup on the `settings.js`
+```json
+editorTheme:{
+  palette: {
+    catalogues: [
+      'https://my.custom.registry/catalogue.json'
+    ]
+  }
+}
 ```
-The following settings can be ignored, they are only used for the linto-stack
-```
-LINTO_STACK_USE_SSL
-LINTO_STACK_DOMAIN
-```
+*Note that the .npmrc need to be configured to be used with a custom registry*
 
 ### Run project
 Normal : `npm run start`
 Debug : `DEBUG=* npm run start`
 
-### Application Interface
-
-The access of the interface is only for test purpose, it should not be used in a full LinTO deployment because of LinTO-Platform-Admin.
-By default you can reach the user interface on [http://localhost:9000/redui](http://localhost:9000/redui)
+### Interface connect
+By default you can reach the user interface on [http://localhost:9000](http://localhost:9000)
 
 ## Docker
-### Install Docker
-
-You will need to have Docker installed on your machine. If they are already installed, you can skip this part.
-Otherwise, you can install them referring to [https://docs.docker.com/engine/installation/](https://docs.docker.com/engine/installation/ "Install Docker")
+### Install Docker and Docker Compose
+You will need to have Docker and Docker Compose installed on your machine. If they are already installed, you can skip this part.
+Otherwise, you can install them referring to [docs.docker.com/engine/installation/](https://docs.docker.com/engine/installation/ "Install Docker"), and to [docs.docker.com/compose/install/](https://docs.docker.com/compose/install/ "Install Docker Compose").
 
 ### Build
-Next step is to build the docker image with the following command `docker build -t bls .`
-Then you just need to run bls image `docker run -d -it -p 9000:9000 bls`
-Finally you have access to the interface on [http://localhost:9000/redui](http://localhost:9000/redui) based on the default settings
-
-### Stack
-You will find the full process to deploy the LinTO platform here : [LinTO-Platform-Stack](https://github.com/linto-ai/linto-platform-stack)
-More information about the deployment can be found here : [doc.linto.ai](https://doc.linto.ai/#/infra)
+You can build the docker with `docker-compose build`
+Then run it with `docker-compose run`
+Then you can acces it on  [localhost:9000](http://localhost:9000)

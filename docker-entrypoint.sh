@@ -31,11 +31,11 @@ while [ "$1" != "" ]; do
          install_by_node_registry https://registry.npmjs.com/
         ;;
     --custom-registry-npmrc)
-          [ -z "$NPM_CUSTOM_REGISTRY" ] && {
-            echo "Missing NPM_CUSTOM_REGISTRY"
+          [ -z "$LINTO_STACK_NPM_CUSTOM_REGISTRY" ] && {
+            echo "Missing LINTO_STACK_NPM_CUSTOM_REGISTRY"
             exit 1
           }
-          install_by_node_registry $NPM_CUSTOM_REGISTRY
+          install_by_node_registry $LINTO_STACK_NPM_CUSTOM_REGISTRY
         ;;
     --reinstall)
           install_linto_node_module

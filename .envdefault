@@ -1,3 +1,5 @@
+LINTO_SHARED_MOUNT=~/linto_shared_mount/
+
 #LINTO_STACK Configuration
 LINTO_STACK_USE_SSL=false
 
