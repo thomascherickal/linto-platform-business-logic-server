@@ -18,7 +18,6 @@ function configureDefaults() {
 
     // Node environment
     process.env.LINTO_STACK_NODE_ENV = ifHas(process.env.NODE_ENV, envdefault.NODE_ENV)
-
     process.env.LINTO_STACK_USE_SSL = ifHas(process.env.LINTO_STACK_USE_SSL, envdefault.LINTO_STACK_USE_SSL)
 
     // Server RED properties
@@ -32,6 +31,10 @@ function configureDefaults() {
 
     // Admin properties
     process.env.LINTO_STACK_ADMIN_URI = ifHas(process.env.LINTO_STACK_ADMIN_URI, envdefault.LINTO_STACK_ADMIN_URI)
+
+    // Overwatch properties
+    // process.env.LINTO_STACK_OVERWATCH_SERVICE = ifHas(process.env.LINTO_STACK_OVERWATCH_SERVICE, envdefault.LINTO_STACK_OVERWATCH_SERVICE)
+
   } catch (e) {
     console.error(debug.namespace, e)
     process.exit(1)
