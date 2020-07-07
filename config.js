@@ -33,7 +33,8 @@ function configureDefaults() {
     process.env.LINTO_STACK_ADMIN_URI = ifHas(process.env.LINTO_STACK_ADMIN_URI, envdefault.LINTO_STACK_ADMIN_URI)
 
     // Overwatch properties
-    // process.env.LINTO_STACK_OVERWATCH_SERVICE = ifHas(process.env.LINTO_STACK_OVERWATCH_SERVICE, envdefault.LINTO_STACK_OVERWATCH_SERVICE)
+    process.env.LINTO_STACK_OVERWATCH_SERVICE = ifHas(process.env.LINTO_STACK_OVERWATCH_SERVICE, envdefault.LINTO_STACK_OVERWATCH_SERVICE)
+    process.env.LINTO_STACK_OVERWATCH_BASE_PATH = ifHas(process.env.LINTO_STACK_OVERWATCH_BASE_PATH, envdefault.LINTO_STACK_OVERWATCH_BASE_PATH)
 
   } catch (e) {
     console.error(debug.namespace, e)
