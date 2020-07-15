@@ -1,4 +1,3 @@
-
 # Linto-Platform-Business-Logic-Server
 This services is mandatory in a complete LinTO platform stack as the main process that actualy executes a workflow defined as a collection of LinTO skills. This service itself mainly consists of a wrapper for a node-red runtime. Any user defined context on linto-admin (a given set of configured skills) is therefore backed by a node-red flow.
 
