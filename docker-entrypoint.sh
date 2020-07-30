@@ -19,10 +19,7 @@ install_by_node_registry(){
     echo "Missing LINTO_STACK_BLS_SERVICE_UI_PATH"
     exit 1
 }
-[ -z "$LINTO_STACK_BLS_SERVICE_API_PATH" ] && {
-    echo "Missing LINTO_STACK_BLS_SERVICE_API_PATH"
-    exit 1
-}
+
 
 
 while [ "$1" != "" ]; do

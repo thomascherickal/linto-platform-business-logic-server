@@ -23,7 +23,7 @@ function configureDefaults() {
     // Server RED properties
     process.env.LINTO_STACK_BLS_HTTP_PORT = ifHas(process.env.LINTO_STACK_BLS_HTTP_PORT, 80)
     process.env.LINTO_STACK_BLS_SERVICE_UI_PATH = ifHas(process.env.LINTO_STACK_BLS_SERVICE_UI_PATH, envdefault.LINTO_STACK_BLS_SERVICE_UI_PATH)
-    process.env.LINTO_STACK_BLS_SERVICE_API_PATH = ifHas(process.env.LINTO_STACK_BLS_SERVICE_API_PATH, envdefault.LINTO_STACK_BLS_SERVICE_API_PATH)
+    process.env.LINTO_STACK_BLS_SERVICE_API_PATH = '/red'
 
     process.env.LINTO_STACK_BLS_USE_LOGIN = ifHas(process.env.LINTO_STACK_BLS_USE_LOGIN, envdefault.LINTO_STACK_BLS_USE_LOGIN)
     process.env.LINTO_STACK_BLS_USER = ifHas(process.env.LINTO_STACK_BLS_USER, envdefault.LINTO_STACK_BLS_USER)
