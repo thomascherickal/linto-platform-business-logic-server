@@ -1,7 +1,8 @@
-/* Hide inactive Tabs */
+/* Hide inactive Tabs
 .red-ui-tabs ul li{
   display: none;
-}
+}*/
+
 /* show active Tabs */
 .red-ui-tabs ul li.active{
   display: inline-block;
