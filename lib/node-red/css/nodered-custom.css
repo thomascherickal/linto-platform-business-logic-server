@@ -1,15 +1,69 @@
-/* Hide inactive Tabs */
+/*** HIDE ELEMENTS ***/
 
-.red-ui-tabs ul li {
-    display: none;
+
+/* Deploy */
+
+.red-ui-deploy-button-group {
+    display: none !important;
 }
 
 
-/* show active Tabs */
+/* Sidebar (right) */
 
-.red-ui-tabs ul li.active {
-    display: inline-block;
+#red-ui-sidebar,
+#red-ui-sidebar-separator {
+    display: none !important;
 }
+
+
+/* Tabs */
+
+.red-ui-tabs.red-ui-tabs-add.red-ui-tabs-search .red-ui-tab-scroll-right {
+    display: none !important;
+}
+
+.red-ui-tabs.red-ui-tabs-add.red-ui-tabs-search.red-ui-tabs-scrollable {
+    padding-right: 0px !important;
+}
+
+#red-ui-workspace-tabs {
+    width: 100%;
+}
+
+.red-ui-tabs ul#red-ui-workspace-tabs li {
+    display: none !important;
+}
+
+.red-ui-tabs ul#red-ui-workspace-tabs li.active {
+    display: inline-block !important;
+}
+
+
+/* Button add tabs */
+
+.red-ui-tab-button.red-ui-tabs-add {
+    display: none !important;
+}
+
+
+/* user menu */
+
+#red-ui-header-button-user {
+    display: none !important;
+}
+
+
+/*list palette */
+
+.red-ui-tab-button.red-ui-tabs-search {
+    display: none !important;
+}
+
+
+/*** END HIDE ELEMENTS ***/
+
+
+/*** STYLE ELEMENTS ***/
 
 #red-ui-header {
     background-color: #6989aa;
@@ -80,7 +134,7 @@
 }
 
 
-/*** EDITOR CONFIG ***/
+/*** EDITOR CONFIG **/
 
 .red-ui-editor .form-row,
 .red-ui-editor-dialog .form-row {
