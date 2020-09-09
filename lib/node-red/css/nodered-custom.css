@@ -10,8 +10,13 @@
 
 /* Sidebar (right) */
 
-#red-ui-sidebar,
+
+/*#red-ui-sidebar,
 #red-ui-sidebar-separator {
+    display: none !important;
+}*/
+
+.red-ui-sidebar-info.show-tips .red-ui-sidebar-info-stack {
     display: none !important;
 }
 
