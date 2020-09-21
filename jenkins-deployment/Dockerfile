@@ -18,7 +18,8 @@ RUN npm config set registry http://${VERDACCIO_USR}:${VERDACCIO_PSW}@${VERDACCIO
  npm install @linto-ai/node-red-linto-news && \
  npm install @linto-ai/node-red-linto-pollution && \
  npm install @linto-ai/node-red-linto-weather && \
- npm install @linto-ai/node-red-linto-welcome
+ npm install @linto-ai/node-red-linto-welcome && \
+ npm config set registry https://registry.npmjs.org/
 
 HEALTHCHECK CMD node docker-healthcheck.js || exit 1
 EXPOSE 80
