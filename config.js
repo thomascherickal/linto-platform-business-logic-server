@@ -29,6 +29,8 @@ function configureDefaults() {
     process.env.LINTO_STACK_BLS_USER = ifHas(process.env.LINTO_STACK_BLS_USER, envdefault.LINTO_STACK_BLS_USER)
     process.env.LINTO_STACK_BLS_PASSWORD = ifHas(process.env.LINTO_STACK_BLS_PASSWORD, envdefault.LINTO_STACK_BLS_PASSWORD)
 
+    // STT properties
+    process.env.LINTO_STACK_STT_SERVICE_MANAGER_SERVICE = ifHas(process.env.LINTO_STACK_STT_SERVICE_MANAGER_SERVICE, envdefault.LINTO_STACK_STT_SERVICE_MANAGER_SERVICE)
     // Admin properties
     process.env.LINTO_STACK_ADMIN_URI = ifHas(process.env.LINTO_STACK_ADMIN_URI, envdefault.LINTO_STACK_ADMIN_URI)
 
